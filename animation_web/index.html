@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Elevator Simulation</title>
+  <link href="styles.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+  <div class="container">
+    <h1>Elevator Simulation</h1>
+
+    <div class="control-panel">
+      <select id="algorithmSelect" class="algorithm-select">
+        <option value="scan">SCAN Algorithm</option>
+        <option value="scan_plus">SCAN Plus Algorithm</option>
+      </select>
+      <button id="resetBtn">Reset</button>
+      <button id="prevBtn" disabled>Previous</button>
+      <button id="playPauseBtn">Play</button>
+      <button id="nextBtn">Next</button>
+      <div id="stepDisplay" class="step-info">Step: 0</div>
+    </div>
+
+    <div class="simulation-container">
+      <div class="building">
+        <div class="floors" id="floors">
+          <!-- Floors will be generated here -->
+        </div>
+        <div class="elevator-shafts" id="elevatorShafts">
+          <!-- Elevator shafts will be generated here -->
+        </div>
+      </div>
+
+      <div class="info-panel" id="infoPanel">
+        <!-- Info will be displayed here -->
+      </div>
+    </div>
+  </div>
+
+  <script src="scripts.js"></script>
+</body>
+
+</html>

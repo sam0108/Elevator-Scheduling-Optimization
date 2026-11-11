@@ -1,0 +1,440 @@
+body {
+    font-family: 'Segoe UI', 'Roboto', 'Arial', sans-serif;
+    margin: 0;
+    padding: 10px;
+    background-color: #f0f8ff;
+    color: #333;
+}
+
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    background-color: white;
+    border-radius: 16px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+    padding: 20px;
+    overflow: hidden;
+    box-sizing: border-box;
+}
+
+h1 {
+    text-align: center;
+    color: #2c3e50;
+    margin-top: 0;
+    font-weight: 600;
+    padding-bottom: 15px;
+    border-bottom: 2px solid #e6e6e6;
+    margin-bottom: 20px;
+    font-size: clamp(1.5rem, 4vw, 2.5rem);
+}
+
+.control-panel {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+    gap: 10px;
+    padding: 15px;
+    background-color: #f5f9fc;
+    border-radius: 12px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+button {
+    padding: 10px 20px;
+    background-color: #3498db;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 500;
+    transition: all 0.2s ease;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    flex: 1;
+    min-width: 100px;
+    max-width: 150px;
+}
+
+button:hover {
+    background-color: #2980b9;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+button:active {
+    transform: translateY(0);
+}
+
+button:disabled {
+    background-color: #bdc3c7;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+}
+
+#playPauseBtn {
+    background-color: #27ae60;
+}
+
+#playPauseBtn:hover {
+    background-color: #219653;
+}
+
+#resetBtn {
+    background-color: #e74c3c;
+}
+
+#resetBtn:hover {
+    background-color: #c0392b;
+}
+
+.step-info {
+    font-size: 18px;
+    font-weight: 600;
+    color: #2c3e50;
+    padding: 8px 15px;
+    background-color: #ecf0f1;
+    border-radius: 8px;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+    flex: 1;
+    text-align: center;
+    min-width: 100px;
+}
+
+.simulation-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.building {
+    width: 100%;
+    display: flex;
+    position: relative;
+    height: 450px;
+    border: 2px solid #34495e;
+    border-radius: 12px;
+    background-color: #f9f9f9;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.floors {
+    width: 35%;
+    max-width: 150px;
+    display: flex;
+    flex-direction: column-reverse;
+    height: 100%;
+    background-color: #ecf0f1;
+    border-right: 1px solid #bdc3c7;
+}
+
+.floor {
+    flex: 1;
+    border-bottom: 1px dashed #bdc3c7;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    transition: background-color 0.3s;
+}
+
+.floor:first-child {
+    border-bottom: none;
+}
+
+.floor:hover {
+    background-color: #e8f4fc;
+}
+
+.floor-number {
+    position: absolute;
+    left: 10px;
+    font-weight: bold;
+    font-size: 16px;
+    color: #2c3e50;
+    background-color: rgba(255, 255, 255, 0.7);
+    padding: 3px 8px;
+    border-radius: 12px;
+}
+
+.waiting {
+    position: absolute;
+    right: 10px;
+    background-color: #e74c3c;
+    color: white;
+    padding: 4px 8px;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: bold;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    min-width: 30px;
+    text-align: center;
+    transition: background-color 0.3s ease;
+}
+
+.waiting.no-waiting {
+    background-color: #27ae60;
+}
+
+.elevator-shafts {
+    flex: 1;
+    display: flex;
+    height: 100%;
+}
+
+.elevator-shaft {
+    flex: 1;
+    position: relative;
+    border-left: 1px solid #bdc3c7;
+    height: 100%;
+    background: repeating-linear-gradient(
+        0deg,
+        #f9f9f9,
+        #f9f9f9 10px,
+        #f0f0f0 10px,
+        #f0f0f0 20px
+    );
+}
+
+.elevator {
+    position: absolute;
+    width: 85%;
+    left: 7.5%;
+    background-color: #3498db;
+    border: 2px solid #2980b9;
+    border-radius: 8px;
+    box-sizing: border-box;
+    /* Here is where the movement animation duration is set - currently 0.5 seconds */
+    transition: bottom 0.5s linear, background-color 0.3s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    overflow: hidden;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.elevator-doors {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    pointer-events: none;
+}
+
+.door {
+    width: 50%;
+    height: 100%;
+    background-color: #2c3e50;
+    transition: transform 0.3s ease-in-out;
+}
+
+.left-door {
+    transform-origin: left;
+}
+
+.right-door {
+    transform-origin: right;
+}
+
+.door-open.left-door {
+    transform: translateX(-100%);
+}
+
+.door-open.right-door {
+    transform: translateX(100%);
+}
+
+.elevator-content {
+    z-index: 2;
+    font-size: 18px;
+    font-weight: bold;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.elevator.moving {
+    background-color: #9b59b6;
+    border-color: #8e44ad;
+}
+
+.info-panel {
+    width: 100%;
+    padding: 20px;
+    background-color: #f5f9fc;
+    border-radius: 12px;
+    border: 1px solid #ddd;
+    height: 300px;
+    overflow-y: auto;
+    box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.05);
+    box-sizing: border-box;
+}
+
+.energy-info {
+    font-size: 18px;
+    margin-bottom: 20px;
+    color: #c0392b;
+    font-weight: 500;
+    padding: 10px;
+    background-color: rgba(236, 240, 241, 0.7);
+    border-radius: 8px;
+    border-left: 4px solid #e74c3c;
+}
+
+.elevator-info {
+    margin-bottom: 15px;
+    padding: 15px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    border-top: 4px solid #3498db;
+}
+
+.elevator-info h3 {
+    margin-top: 0;
+    margin-bottom: 12px;
+    color: #3498db;
+    font-weight: 600;
+}
+
+.elevator-info p {
+    margin: 8px 0;
+    color: #34495e;
+}
+
+.scheduled-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 5px;
+}
+
+.floor-item {
+    background-color: #e0e0e0;
+    padding: 4px 10px;
+    border-radius: 15px;
+    font-size: 14px;
+    color: #2c3e50;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.algorithm-select {
+    padding: 10px 15px;
+    background-color: #3498db;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 500;
+    transition: all 0.2s ease;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 12px center;
+    background-size: 16px;
+    padding-right: 40px;
+    min-width: 200px;
+    flex: 1;
+    max-width: 220px;
+}
+
+.algorithm-select:hover {
+    background-color: #2980b9;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.algorithm-select:active {
+    transform: translateY(0);
+}
+
+.algorithm-select:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.3);
+}
+
+/* 調整下拉菜單選項的樣式 */
+.algorithm-select option {
+    background-color: white;
+    color: #2c3e50;
+    padding: 10px;
+}
+
+/* 針對不同螢幕尺寸的調整 */
+@media (max-width: 768px) {
+    .algorithm-select {
+        min-width: 150px;
+        font-size: 14px;
+        padding: 8px 12px;
+        padding-right: 36px;
+    }
+}
+
+/* Tablet styles */
+@media (min-width: 768px) {
+    body {
+        padding: 20px;
+    }
+    
+    .container {
+        padding: 25px;
+    }
+    
+    .control-panel {
+        gap: 15px;
+        padding: 15px;
+    }
+    
+    .simulation-container {
+        gap: 25px;
+    }
+    
+    .waiting {
+        min-width: 80px;
+        font-size: 16px;
+        padding: 5px 12px;
+    }
+    
+    .step-info {
+        font-size: 20px;
+    }
+}
+
+/* Desktop styles */
+@media (min-width: 1024px) {
+    .simulation-container {
+        flex-direction: row;
+    }
+    
+    .building {
+        flex: 2;
+        height: 550px;
+    }
+    
+    .info-panel {
+        flex: 1;
+        height: 550px;
+    }
+}
+
+/* Large desktop styles */
+@media (min-width: 1280px) {
+    .container {
+        max-width: 1400px;
+    }
+    
+    .building {
+        flex: 3;
+    }
+    
+    .info-panel {
+        flex: 1.5;
+    }
+}

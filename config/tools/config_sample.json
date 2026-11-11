@@ -1,0 +1,40 @@
+{
+    "strategy": "scan",
+    "total_flow": 100,
+    "building_config": {
+        "num_floors": 10,
+        "floor_height": 3.0,
+        "num_elevators": 3,
+        "door_open_time": 5,
+        "move_time_per_floor": 1,
+        "elevator_configs": [
+            {
+                "weight": 1000,
+                "capacity": 10,
+                "init_floor": 0,
+                "scheduling_win_size": 5,
+                "motor_config": {
+                    "startup_energy_loss": 5.0
+                }
+            },
+            {
+                "weight": 1000,
+                "capacity": 10,
+                "init_floor": 0,
+                "scheduling_win_size": 5,
+                "motor_config": {
+                    "startup_energy_loss": 5.0
+                }
+            },
+            {
+                "weight": 1000,
+                "capacity": 10,
+                "init_floor": 0,
+                "scheduling_win_size": 5,
+                "motor_config": {
+                    "startup_energy_loss": 5.0
+                }
+            }
+        ]
+    }
+}

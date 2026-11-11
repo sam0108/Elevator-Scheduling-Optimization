@@ -1,0 +1,21 @@
+# liuutin9
+/utils/                                    @liuutin9
+/config/tools/config_sample.json           @liuutin9
+/config/tools/config_validation.py         @liuutin9
+/config/human/human_config.json            @liuutin9
+/config/human/human_config_generator.py    @liuutin9
+/method/scan.py                            @liuutin9
+/method/scan_plus.py                       @liuutin9
+/animation_web                             @liuutin9
+
+# hjs1hjs2hjs3 Melodyh20809 diannaoxing
+/GP_util/                                  @hjs1hjs2hjs3 @Melodyh20809 @diannaoxing
+/gp_result/                                @hjs1hjs2hjs3 @Melodyh20809 @diannaoxing
+/gp_train.py                               @hjs1hjs2hjs3 @Melodyh20809 @diannaoxing
+/method/gp_train.py                        @hjs1hjs2hjs3 @Melodyh20809 @diannaoxing
+/method/GP.py                              @hjs1hjs2hjs3 @Melodyh20809 @diannaoxing
+
+# sam0108 zhiyun1101
+/method/HC.py                              @sam0108 @zhiyun1101
+/method/single.py                          @sam0108 @zhiyun1101
+/config/config_single.json                 @sam0108 @zhiyun1101
